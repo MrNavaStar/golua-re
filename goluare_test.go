@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/mrnavastar/golua/lua"
+	"github.com/aarzilli/golua/lua"
 )
 
 var L = lua.NewState()
