@@ -1,12 +1,10 @@
-# Golua Unicode Support
+# Golua Regex
 
-This extension to [Arzilli's Golua](http://github.com/aarzilli/golua) adds
-Unicode support to all functions from the Lua string library.
+This extension to [MrNavaStar's Golua](http://github.com/mrnavastar/golua) adds 
+Unicode and Regex support to all functions from the Lua string library.
 
-Lua patterns are replaced by
-[Go regexps](http://github.com/google/re2/wiki/Syntax). This breaks
-compatibility with Lua, but Unicode support breaks it anyways and Go regexps are
-more powerful.
+Lua patterns can be replaced by [Go regexps](http://github.com/google/re2/wiki/Syntax). This breaks
+compatibility with Lua. If this is undesired, simply register the library under a different alias
 
 ## Example
 
@@ -14,15 +12,15 @@ more powerful.
 package main
 
 import (
-	"github.com/ambrevar/golua/unicode"
-	"github.com/aarzilli/golua/lua"
+	"github.com/mrnavastar/goluare"
+	"github.com/mrnavastar/golua/lua"
 )
 
 func main() {
 	L := lua.NewState()
 	defer L.Close()
 	L.OpenLibs()
-	unicode.GoLuaReplaceFuncs(L)
+	L.RegisterLib("string", goluare.REGEX)
 
 	L.DoString(`print(string.len("résumé"))`)
 	L.DoString(`print(string.upper("résumé"))`)

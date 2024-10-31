@@ -12,7 +12,7 @@
 //
 // For the full specification of the functions, see
 // http://www.lua.org/manual/5.1/manual.html#5.4.
-package unicode
+package goluare
 
 import (
 	"fmt"
@@ -20,8 +20,20 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/aarzilli/golua/lua"
+	"github.com/mrnavastar/golua/lua"
 )
+
+var REGEX = map[string]lua.LuaGoFunction {
+	"find": Find,
+	"gmatch": Gmatch,
+	"gsub": Gsub,
+	"len": Len,
+	"lower": Lower,
+	"match": Match,
+	"reverse": Reverse,
+	"sub": Sub,
+	"upper": Upper,
+}
 
 // TODO: Review Lua official implementation in lstrlib.c.
 // TODO: Test how memoization scales with regexpCache.
@@ -398,32 +410,6 @@ func Upper(L *lua.State) int {
 	str := L.CheckString(1)
 	L.PushString(strings.ToUpper(str))
 	return 1
-}
-
-// GoLuaReplaceFuncs is a helper to replace all supported functions from Lua's
-// 'string' library with their unicode counterpart.
-func GoLuaReplaceFuncs(L *lua.State) {
-	var list = []struct {
-		name string
-		f    lua.LuaGoFunction
-	}{
-		{name: "find", f: Find},
-		{name: "gmatch", f: Gmatch},
-		{name: "gsub", f: Gsub},
-		{name: "len", f: Len},
-		{name: "lower", f: Lower},
-		{name: "match", f: Match},
-		{name: "reverse", f: Reverse},
-		{name: "sub", f: Sub},
-		{name: "upper", f: Upper},
-	}
-
-	for _, v := range list {
-		L.GetGlobal("string")
-		L.PushGoFunction(v.f)
-		L.SetField(-2, v.name)
-		L.Pop(1)
-	}
 }
 
 // FlushRegexpCache resets the global regexp cache.

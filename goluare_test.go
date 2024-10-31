@@ -1,20 +1,20 @@
 // Copyright © 2013-2016 Pierre Neidhardt <ambrevar@gmail.com>
 // Use of this file is governed by the license that can be found in LICENSE.
 
-package unicode
+package goluare
 
 import (
 	"os"
 	"testing"
 
-	"github.com/aarzilli/golua/lua"
+	"github.com/mrnavastar/golua/lua"
 )
 
 var L = lua.NewState()
 
 func init() {
 	L.OpenLibs()
-	GoLuaReplaceFuncs(L)
+	L.RegisterLib("string", RE)
 }
 
 type testEntry struct {

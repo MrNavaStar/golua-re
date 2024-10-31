@@ -1,0 +1,4 @@
+github.com/aarzilli/golua v0.0.0-20240926082618-dc217320bb4d h1:pXps8msQt1KhEK7FjUHRVToqWMUV3DYSzuymktg1/Ek=
+github.com/aarzilli/golua v0.0.0-20240926082618-dc217320bb4d/go.mod h1:hMjfaJVSqVnxenMlsxrq3Ni+vrm9Hs64tU4M7dhUoO4=
+github.com/mrnavastar/golua v0.0.0-20241031061444-a5cac427bd67 h1:KTOeBufcBRm62xERyR461vhuHiBiKmeadTA5a63GfWA=
+github.com/mrnavastar/golua v0.0.0-20241031061444-a5cac427bd67/go.mod h1:wcgIcQdcKO4O44JaZIe8ijPZ7tU/dBFjmKrizjHleuo=
