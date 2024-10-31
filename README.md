@@ -1,6 +1,6 @@
 # Golua Regex
 
-This extension to [MrNavaStar's Golua](http://github.com/mrnavastar/golua) adds 
+This extension to [Aarzilli's Golua](http://github.com/aarzilli/golua) adds 
 Unicode and Regex support to all functions from the Lua string library.
 
 Lua patterns can be replaced by [Go regexps](http://github.com/google/re2/wiki/Syntax). This breaks
@@ -13,7 +13,7 @@ package main
 
 import (
 	"github.com/mrnavastar/goluare"
-	"github.com/mrnavastar/golua/lua"
+	"github.com/aarzilli/golua/lua"
 )
 
 func main() {
