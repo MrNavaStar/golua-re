@@ -1,4 +1,4 @@
-module goluare
+module github.com/mrnavastar/goluare
 
 go 1.22.7
 
