@@ -20,7 +20,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/mrnavastar/golua/lua"
+	"github.com/aarzilli/golua/lua"
 )
 
 var REGEX = map[string]lua.LuaGoFunction {
